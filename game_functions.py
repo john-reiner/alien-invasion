@@ -4,7 +4,7 @@ import pygame
 from bullet import Bullet 
 from alien import Alien
 
-def update_bullets(aliens, bullets):
+def update_bullets(ai_settings, screen, ship, aliens, bullets):
     """Upadate posion of bullets and get rid of old bullets."""
     # Update bullet positions.
     bullets.update()
@@ -17,6 +17,11 @@ def update_bullets(aliens, bullets):
     # Check for any bullets that have hit aliens. 
     # If so, get rid of the bullet an dthe alien. 
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        # Destroy existing bullets and create new fleet. 
+        bullets.empty()
+        create_fleet(ai_settings,screen,ship,aliens)
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Respond to keypresses."""
