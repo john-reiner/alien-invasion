@@ -65,7 +65,7 @@ def check_events(ai_settings, screen, stats, play_button, ship, bullets):
             check_keyup_events(event, ship)
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
-            check_player_button(stats, play_button, mouse_x, mouse_y)
+            check_play_button(stats, play_button, mouse_x, mouse_y)
 
 def check_play_button(stats, play_button, mouse_x, mouse_y):
     """Start a new game when the player clicks Play."""
