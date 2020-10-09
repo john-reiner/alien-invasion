@@ -6,7 +6,7 @@ import pygame
 from bullet import Bullet 
 from alien import Alien
 
-def update_bullets(ai_settings, screen, ship, aliens, bullets):
+def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets):
     """Upadate posion of bullets and get rid of old bullets."""
     # Update bullet positions.
     bullets.update()
@@ -16,7 +16,7 @@ def update_bullets(ai_settings, screen, ship, aliens, bullets):
         if bullet.rect.bottom <= 0: 
             bullets.remove(bullet)
 
-    check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets)
+    check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets): 
     """Respond to bullet-alien collisions."""
