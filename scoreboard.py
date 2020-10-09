@@ -6,7 +6,7 @@ class Scoreboard():
 
     def __init__(self, ai_settings, screen, stats):
         """ Initialize scorekeeping attributes."""
-        sel.screen = screen
+        self.screen = screen
         self.screen_rect = screen.get_rect()
         self.ai_settings = ai_settings
         self.stats = stats
@@ -20,7 +20,7 @@ class Scoreboard():
 
     def prep_score(self):
         """Turn the score into a rendered image."""
-        score_str = str(self.stat.score)
+        score_str = str(self.stats.score)
         self.score_image = self.font.render(score_str, True, self.text_color, self.ai_settings.bg_color)
 
         # Display the score at the top right of the screen. 
